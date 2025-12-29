@@ -3,7 +3,7 @@ import {defineConfig} from 'vitepress';
 export default defineConfig({
     title: 'Pedro Pathing',
     description: 'Pedro Pathing Documentation',
-    base: '/',
+    base: '/Documentation-1.0.9/',
     head: [["link", {rel: "shortcut icon", type: "image/x-icon", href: "/favicon.ico"}]],
     lastUpdated: true,
     themeConfig: {

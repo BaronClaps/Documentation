@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+
+    <style>
+        body {
+            background-color: #111111;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, sans-serif;
+            text-align: center;
+            height: 100dvh;
+            margin: 0;
+        }
+
+        h1 {
+            color: deepskyblue;
+            font-size: 4rem;
+            margin: 0.5rem;
+        }
+
+        h2 {
+            color: white;
+            margin: 0;
+            font-size: 1.5rem;
+        }
+
+        a {
+            color: deepskyblue;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h1>Redirecting...</h1>
+<h2 id="subheading">
+    <noscript>This page uses JavaScript to redirect. Please enable JavaScript for this site and reload.</noscript>
+</h2>
+
+<script>
+  const subheading = document.getElementById('subheading')
+
+  const searchParams = new URLSearchParams(window.location.search)
+  const target = searchParams.get('target')?.toLowerCase()
+
+  fetch('/redirects.json').then(res => res.json()).then(redirects => {
+    const redirect = redirects[target]
+    if (redirect) {
+      subheading.innerHTML = `Redirecting. If you are not redirected automatically, <a href="${redirect}">click here</a>.`
+      location.replace(redirect)
+    } else {
+      subheading.innerHTML = 'Redirect not found. <a href="/">Click here</a> to return to the home page.'
+    }
+  }).catch(() => {
+    subheading.innerHTML = 'Redirect failed. Please try again later. <a href="/">Click here</a> to return to the home page.'
+  })
+</script>
+
+</body>
+</html>

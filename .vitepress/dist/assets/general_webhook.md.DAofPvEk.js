@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.BIyetr1L.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"general/webhook.md","filePath":"general/webhook.md","lastUpdated":1737258182000}'),o={name:"general/webhook.md"};function r(n,s,c,d,p,l){return a(),t("div")}const m=e(o,[["render",r]]);export{i as __pageData,m as default};
